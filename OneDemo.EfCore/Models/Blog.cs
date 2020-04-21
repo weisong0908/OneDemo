@@ -6,6 +6,6 @@ namespace OneDemo.EfCore.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public IList<Post> Posts { get; set; }
+        virtual public IList<Post> Posts { get; set; }
     }
 }

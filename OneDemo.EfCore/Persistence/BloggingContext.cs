@@ -14,6 +14,11 @@ namespace OneDemo.EfCore.Persistence
 
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             SeedData(modelBuilder);
