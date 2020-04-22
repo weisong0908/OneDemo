@@ -18,7 +18,7 @@ namespace OneDemo.EfCore.Controllers
         }
 
         [HttpGet("blogs")]
-        public IActionResult GetBlogsNormally()
+        public IActionResult GetBlogs()
         {
             var blogs = _bloggingContext.Blogs.ToList();
 
@@ -26,7 +26,7 @@ namespace OneDemo.EfCore.Controllers
         }
 
         [HttpGet("posts")]
-        public IActionResult GetPostsLazyLoaded()
+        public IActionResult GetPosts()
         {
             var blogs = _bloggingContext.Blogs.ToList();
 
@@ -40,6 +40,7 @@ namespace OneDemo.EfCore.Controllers
                 }
             }
 
+            // transform using Select if lazyloading is used to avoid System.Text.Json exception
             var titles = posts.Select(p => p.Title);
 
             return Ok(titles);
