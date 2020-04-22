@@ -18,19 +18,19 @@ This project demonstrates using EntityFrameworkCore to load related data using t
 
 1. Start SQL Server 2019 on Docker
 
-```
+```bash
 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=myComplexPassword!' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
 ```
 
 2. Update database from `DbContext`
 
-```
+```bash
 dotnet ef database update
 ```
 
 3. Run the project
 
-```
+```bash
 dotnet run
 ```
 
@@ -40,7 +40,7 @@ Steps to take to use lazy loading:
 
 1. Install package `Microsoft.EntityFrameworkCore.Proxies`
 
-```
+```bash
 dotnet add package Microsoft.EntityFrameworkCore.Proxies
 ```
 
@@ -50,7 +50,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Proxies
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 {
     optionsBuilder.UseLazyLoadingProxies();
-	base.OnConfiguring(optionsBuilder);
+    base.OnConfiguring(optionsBuilder);
 }
 ```
 
