@@ -9,7 +9,7 @@ namespace OneDemo.EfCore.Models
         // use this for lazy loading
         // virtual public IList<Post> Posts { get; set; }
 
-        // use this for eager loading
+        // use this for eager loading and explicit loading
         public IList<Post> Posts { get; set; }
     }
 }

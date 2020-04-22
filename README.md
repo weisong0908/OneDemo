@@ -60,4 +60,20 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 Steps to use eager loading:
 
-1. Use `Include( parent => parent.NavigationProperty1 )` and return the navigation property. The included properties will be retrieved together with the parent entity in one query.
+1. Use `Include(blog => blog.Posts)` and return the navigation property. The included properties will be retrieved together with the parent entity in one query.
+
+### Explicit loading
+
+Steps to use explicit loading
+
+1.  First load the parent entity
+
+```c#
+var blogs = _bloggingContext.Blogs.ToList();
+```
+
+2. Load the related entity using `Load()` method. Filter is optional.
+
+```c#
+_bloggingContext.Posts.Where(p => !string.IsNullOrWhiteSpace(p.Blog.Title)).Load();
+```

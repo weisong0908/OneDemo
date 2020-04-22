@@ -8,7 +8,7 @@ namespace OneDemo.EfCore.Models
         // use this for lazy loading
         // virtual public Blog Blog { get; set; }
 
-        //use this for eager loading
+        //use this for eager loading and explicit loading
         public Blog Blog { get; set; }
     }
 }

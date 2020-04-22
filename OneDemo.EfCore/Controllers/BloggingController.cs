@@ -33,17 +33,16 @@ namespace OneDemo.EfCore.Controllers
             // var blogs = _bloggingContext.Blogs.ToList();
 
             // use this for eager loading
-            var blogs = _bloggingContext.Blogs.Include(b => b.Posts).ToList();
+            // var blogs = _bloggingContext.Blogs.Include(b => b.Posts).ToList();
+
+            // use this for explicit loading
+            var blogs = _bloggingContext.Blogs.ToList();
+            _bloggingContext.Posts.Where(p => !string.IsNullOrWhiteSpace(p.Blog.Title)).Load();
 
             var posts = new List<Post>();
 
             foreach (var blog in blogs)
-            {
-                foreach (var post in blog.Posts)
-                {
-                    posts.Add(post);
-                }
-            }
+                posts.AddRange(blog.Posts);
 
             // transform using Select to avoid System.Text.Json exception
             var titles = posts.Select(p => p.Title);
