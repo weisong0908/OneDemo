@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OneDemo.EfCore.Models;
 using OneDemo.EfCore.Persistence;
 
@@ -28,7 +29,11 @@ namespace OneDemo.EfCore.Controllers
         [HttpGet("posts")]
         public IActionResult GetPosts()
         {
-            var blogs = _bloggingContext.Blogs.ToList();
+            // use this for lazy loading
+            // var blogs = _bloggingContext.Blogs.ToList();
+
+            // use this for eager loading
+            var blogs = _bloggingContext.Blogs.Include(b => b.Posts).ToList();
 
             var posts = new List<Post>();
 
@@ -40,7 +45,7 @@ namespace OneDemo.EfCore.Controllers
                 }
             }
 
-            // transform using Select if lazyloading is used to avoid System.Text.Json exception
+            // transform using Select to avoid System.Text.Json exception
             var titles = posts.Select(p => p.Title);
 
             return Ok(titles);

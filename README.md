@@ -34,7 +34,7 @@ dotnet ef database update
 dotnet run
 ```
 
-### LazyLoading
+### Lazy Loading
 
 Steps to take to use lazy loading:
 
@@ -55,3 +55,9 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 ```
 
 3. Mark navigation properties `virtual` because `UseLazyLoadingProxies` requires all entity types to be public, unsealed, have virtual navigation properties, and have a public or protected constructor.
+
+### Eager Loading
+
+Steps to use eager loading:
+
+1. Use `Include( parent => parent.NavigationProperty1 )` and return the navigation property. The included properties will be retrieved together with the parent entity in one query.

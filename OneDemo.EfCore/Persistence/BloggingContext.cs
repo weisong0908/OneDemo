@@ -14,11 +14,11 @@ namespace OneDemo.EfCore.Persistence
 
         }
 
-        // enable lazyloading
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseLazyLoadingProxies();
-        }
+        // this enables lazy loading
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     optionsBuilder.UseLazyLoadingProxies();
+        // }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
