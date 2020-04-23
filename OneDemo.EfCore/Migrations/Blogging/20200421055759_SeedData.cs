@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace OneDemo.EfCore.Migrations
+namespace OneDemo.EfCore.Migrations.Blogging
 {
     public partial class SeedData : Migration
     {

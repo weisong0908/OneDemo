@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OneDemo.EfCore.Persistence;
 
-namespace OneDemo.EfCore.Migrations
+namespace OneDemo.EfCore.Migrations.Blogging
 {
     [DbContext(typeof(BloggingContext))]
     [Migration("20200421054223_InitialMigration")]
