@@ -33,6 +33,7 @@ namespace OneDemo.EfCore
             services.AddDbContext<PeopleContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             services.AddScoped<IPeopleRepository, PeopleRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

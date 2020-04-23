@@ -17,5 +17,20 @@ namespace OneDemo.EfCore.Persistence
         {
             return _peopleContext.People.ToList();
         }
+
+        public void UpdatePerson(Person person)
+        {
+            _peopleContext.People.Update(person);
+        }
+
+        public void AddPerson(Person person)
+        {
+            _peopleContext.People.Add(person);
+        }
+
+        public void RemovePerson(Person person)
+        {
+            _peopleContext.People.Remove(person);
+        }
     }
 }
