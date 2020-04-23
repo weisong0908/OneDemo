@@ -8,17 +8,17 @@ namespace OneDemo.EfCore.Controllers
     [Route("[controller]")]
     public class PeopleController : ControllerBase
     {
-        private readonly PeopleContext _peopleContext;
+        private readonly IPeopleRepository _peopleRepository;
 
-        public PeopleController(PeopleContext peopleContext)
+        public PeopleController(IPeopleRepository peopleRepository)
         {
-            _peopleContext = peopleContext;
+            _peopleRepository = peopleRepository;
         }
 
         [HttpGet]
         public IActionResult GetPeople()
         {
-            var people = _peopleContext.People.ToList();
+            var people = _peopleRepository.GetPeople();
 
             return Ok(people);
         }

@@ -31,6 +31,8 @@ namespace OneDemo.EfCore
 
             services.AddDbContext<BloggingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddDbContext<PeopleContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+
+            services.AddScoped<IPeopleRepository, PeopleRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
