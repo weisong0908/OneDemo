@@ -31,9 +31,13 @@ namespace OneDemo.EfCore
 
             services.AddDbContext<BloggingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddDbContext<PeopleContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<AnimalContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             services.AddScoped<IPeopleRepository, PeopleRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<IAnimalQueryService, AnimalQueryService>();
+            services.AddScoped<IAnimalCommandService, AnimalCommandService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
