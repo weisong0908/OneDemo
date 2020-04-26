@@ -26,8 +26,13 @@ namespace OneDemo.SentryLog.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            _logger.LogError("some error");
-            throw new ArgumentOutOfRangeException();
+            _logger.LogInformation("some info");
+            // _logger.LogDebug("some debug");
+            // _logger.LogCritical("some critical");
+            // _logger.LogTrace("some trace");
+            // _logger.LogWarning("some warning");
+            // _logger.LogError("some error");
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
