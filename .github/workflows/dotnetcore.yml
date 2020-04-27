@@ -1,0 +1,27 @@
+name: .NET Core
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: My job for OneDemo.GithubActions 
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Go to OneDemo.GithubActions directory
+      run: cd OneDemo.GithubActions
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Run
+      run: dotnet run
+        
