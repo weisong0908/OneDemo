@@ -20,5 +20,3 @@ jobs:
         run: dotnet restore OneDemo.GithubActions/OneDemo.GithubActions.csproj
       - name: Build
         run: dotnet build --configuration Release --no-restore OneDemo.GithubActions/OneDemo.GithubActions.csproj
-      - name: Run
-        run: dotnet run --project OneDemo.GithubActions/OneDemo.GithubActions.csproj
