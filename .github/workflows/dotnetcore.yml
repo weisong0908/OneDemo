@@ -16,13 +16,9 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.101
-      - name: Go to OneDemo.GithubActions directory
-        run: cd OneDemo.GithubActions
-      - name: Where are you?
-        run: pwd
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore OneDemo.GithubActions/OneDemo.GithubActions.csproj
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore OneDemo.GithubActions/OneDemo.GithubActions.csproj
       - name: Run
-        run: dotnet run
+        run: dotnet run --project OneDemo.GithubActions/OneDemo.GithubActions.csproj
