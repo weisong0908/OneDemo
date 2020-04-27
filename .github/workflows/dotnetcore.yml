@@ -18,6 +18,8 @@ jobs:
           dotnet-version: 3.1.101
       - name: Go to OneDemo.GithubActions directory
         run: cd OneDemo.GithubActions
+      - name: Where are you?
+        run: pwd
       - name: Install dependencies
         run: dotnet restore
       - name: Build
